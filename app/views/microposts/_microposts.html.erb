@@ -11,11 +11,12 @@
           <p><%= micropost.status %></p>
           <p><% if micropost.img? %>
           <%= image_tag micropost.img.url %></p>
-          <%= link_to 'このメッセージを編集する', edit_micropost_path(micropost.id) %>
+          
           <% end %>
         </div>
         <% if current_user == micropost.user %>
-            <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <p><%= link_to 'このメッセージを編集する', edit_micropost_path(micropost.id) %></p>
+          <p><%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %></p>
         <% end %>
         <%= render 'favorites/favorite_button', micropost: micropost %>
       </div>
